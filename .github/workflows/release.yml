@@ -11,9 +11,7 @@ jobs:
     # Platforms to build on/for
     strategy:
       matrix:
-        os: [
-          { name: 'linux',   image: 'ubuntu-latest' }
-        ]
+        os: [ubuntu-latest]
         arch: [ 'x64']
         node-version: [18.16.0]
 
