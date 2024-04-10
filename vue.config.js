@@ -11,38 +11,22 @@ const builderOptions = {
   extraMetadata: {
     name: "YouTube Music for Desktop",
   },
-  mac: {
-    category: "public.app-category.music",
-    icon: "src/assets/icons/mac/icon.icns",
-    target: [
-      { target: "dmg", arch: "x64" },
-      { target: "dmg", arch: "arm64" }
-    ]
-  },
-  dmg: {
-    icon: "src/assets/icons/mac/icon.icns",
-    title: "Install/Update ${productName} ${version}",
-  },
-  linux: {
-      target: [
-          { target: "AppImage", arch: "x64" },
-          { target: "rpm", arch: "x64" }
-      ],
-    category: "Music",
-    icon: "src/assets/icons/mac/icon.icns",
-  },
+    linux: {
+        desktop: {
+            StartupNotify: "false",
+            Encoding: "UTF-8",
+            MimeType: "x-scheme-handler/deeplink"
+        },
+        target: ["flatpak", "rpm", "deb"],
+        category: "Music",
+        icon: "src/assets/icons/mac/icon.icns",
+    },
   squirrelWindows: null,
   nsis: {
     installerIcon: "src/assets/icons/win/icon.ico",
     installerHeaderIcon: "src/assets/icons/win/icon.ico",
     deleteAppDataOnUninstall: true,
-  },
-  win: {
-    icon: "src/assets/icons/win/icon.ico",
-    target: { target: "nsis", arch: "x64" },
-
-    compression: "maximum"
-  },
+  }
 };
 /**
  * @type {import('electron-builder').AfterPackContext} electronBuilder

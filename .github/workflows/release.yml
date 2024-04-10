@@ -11,7 +11,10 @@ jobs:
     # Platforms to build on/for
     strategy:
       matrix:
-        os: [windows-latest, ubuntu-latest, macos-11]
+        os: [
+          { name: 'linux',   image: 'ubuntu-latest' }
+        ]
+        arch: [ 'x64']
         node-version: [18.16.0]
 
     steps:
@@ -28,13 +31,7 @@ jobs:
           sudo apt update
           sudo apt install libdbus-1-dev snapd
           sudo snap install snapcraft --classic
-          sudo apt install rpm
-
-      - if: matrix.os == 'windows-latest'
-        name: install windows deps
-        uses: GuillaumeFalourd/setup-windows10-sdk-action@v1.8
-        with:
-          sdk-version: 19041
+          sudo apt install rpm flatpak flatpak-builder
 
       - name: Install dependencies
         run: |
