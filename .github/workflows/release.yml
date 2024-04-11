@@ -29,7 +29,7 @@ jobs:
           sudo apt update
           sudo apt install libdbus-1-dev snapd
           sudo snap install snapcraft --classic
-          sudo apt install rpm flatpak flatpak-builder
+          sudo apt install rpm
 
       - name: Install dependencies
         run: |

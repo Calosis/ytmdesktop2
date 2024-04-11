@@ -7,19 +7,29 @@ const webpackNodeExternals = require("webpack-node-externals");
 const builderOptions = {
   publish: ["github"],
   appId: "net.venipa.ytmdesktop",
-  productName: "YouTube Music for Desktop",
+  productName: "YouTube Music",
   extraMetadata: {
-    name: "YouTube Music for Desktop",
+    name: "youtubemusic",
   },
     linux: {
         desktop: {
-            StartupNotify: "false",
-            Encoding: "UTF-8",
-            MimeType: "x-scheme-handler/deeplink"
+            Name: "Youtube Music",
+            GenericName: "Music Player",
+            Type: "Application",
+            Categories: "Music;",
+            Keywords: "youtube;music"
         },
-        target: ["flatpak", "rpm", "deb"],
+        target: [
+            {
+                target: "rpm",
+                arch: [
+                    "x64",
+                ]
+            }
+        ],
         category: "Music",
         icon: "src/assets/icons/mac/icon.icns",
+        maintainer: "hello@hello.com"
     },
   squirrelWindows: null,
   nsis: {
