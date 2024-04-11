@@ -9,7 +9,7 @@ const builderOptions = {
   appId: "net.venipa.ytmdesktop",
   productName: "YouTube Music",
   extraMetadata: {
-    name: "youtubemusic",
+    name: "youtube-music-desktop",
   },
     linux: {
         desktop: {

@@ -9,8 +9,8 @@ import IPC_EVENT_NAMES from '../utils/eventNames';
 import SettingsProvider from './settingsProvider.plugin';
 
 if (isDevelopment) process.env.__SKIP_BUILD == null;
-const [GITHUB_AUTHOR, GITHUB_REPOSITORY] =
-  process.env.VUE_APP_GITHUB_REPOSITORY.split("/", 2);
+/*const [GITHUB_AUTHOR, GITHUB_REPOSITORY] =
+  process.env.VUE_APP_GITHUB_REPOSITORY.split("/", 2);*/
 @IpcContext
 export default class UpdateProvider
   extends BaseProvider
@@ -40,8 +40,8 @@ export default class UpdateProvider
     autoUpdater.logger = this.logger;
     autoUpdater.setFeedURL({
       provider: "github",
-      owner: GITHUB_AUTHOR,
-      repo: GITHUB_REPOSITORY,
+      owner: "calosis",
+      repo: "https://github.com/Calosis/ytmdesktop2",
     });
     autoUpdater.autoDownload = false;
     autoUpdater.autoInstallOnAppQuit = !isDevelopment;
